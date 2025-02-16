@@ -1,0 +1,21 @@
+<svg width="899" height="327" viewBox="0 0 899 327" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g style="mix-blend-mode:overlay">
+<path d="M734.5 1.5L896.5 165L734.5 325.5H1.99999V1.5H734.5Z" fill="url(#paint0_radial_734_897)"/>
+<path d="M734.5 1.5L896.5 165L734.5 325.5H1.99999V1.5H734.5Z" fill="url(#paint1_linear_734_897)" fill-opacity="0.37"/>
+<path d="M734.5 1.5L896.5 165L734.5 325.5H1.99999V1.5H734.5Z" stroke="url(#paint2_linear_734_897)" stroke-width="3"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_734_897" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(897 164) rotate(-180) scale(409.5 405.432)">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#737373" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="paint1_linear_734_897" x1="401.5" y1="490.5" x2="729.5" y2="372.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint2_linear_734_897" x1="73.0001" y1="57.0001" x2="711.5" y2="303.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#999999" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>

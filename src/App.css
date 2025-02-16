@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Подключаем шрифт Epilogue */
+body {
+  font-family: 'Instrument Sans', sans-serif;
+}
+
+/* Если хочешь использовать другой шрифт в отдельных элементах */
+h1, h2, h3 {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700; /* Полужирный */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+.section {
+  width: 100%;
+  height: 130vh; /* Полноэкранная высота */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center -200%, 
+    #041E31 33%, 
+    #040A18 73%, 
+    #000305 100%);
+
+   
+}
+
+.Image {
+  width: 100%;
+  height: auto;
+  opacity: 60%;
+  position: absolute;
+  top: 4.5vw;
+}
+
+
+.container {
+  width: 80%;
+  max-width: 100%;
+  height: 80%; /* Делаем контейнер высотой на всю секцию */
+  display: flex; /* Добавляем flex для центрирования содержимого */
+  flex-direction: column;
+  justify-content: center; /* Центрируем контент по вертикали */
+  align-items: center; /* Центрируем контент по горизонтали */
+  padding: 0;
+  border-radius: 10px;
+  text-align: center;
+  color: white; /* Белый текст */
+}
+
+.main{
+  display: flex;
+  margin: 5.208vw 0 5.208vw 0;
+  flex-direction: column;
+  justify-content: center; /* Центрируем контент по вертикали */
+  align-items: center; /* Центрируем контент по горизонтали */
+}
+
+h1{
+  font-size: 3.3vw;
+  font-weight: bold;
+  margin-bottom: 1.563vw;
+  width: 44.427vw;
+  line-height: 3.438vw;
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+p{
+  font-size: 1.1vw;
+  font-weight: 200;
+  width: 58.75vw;
+  opacity: 41%;
+  line-height: 1.198vw;
+  margin-top: 1.042vw;
+  margin-bottom: 0px;
+}
+
+.main-button {
+  font-size: 1.25vw;
+  font-weight: bold;
+  margin-top: 2.604vw;
+  width: 18.073vw;
+  height: 4.063vw;
+  padding: 0.521vw 1.042vw;
+  border: none;
+  border-radius: 65px; /* Скругленные углы */
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+  position: relative; /* Для псевдоэлемента */
+
+  /* Градиентный фон */
+  background: linear-gradient(90deg, rgba(0, 2, 10, 0.6) 16%, rgba(81, 138, 180, 0.23) 100%);
+  
+  /* Белый текст */
+  color: #FFFFFF;
+  text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+
+  /* Изолируем фон, чтобы градиентный бордер не менялся */
+  isolation: isolate;
+}
+
+/* Градиентный бордер через псевдоэлемент */
+.main-button::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* Охватывает всю кнопку */
+  border-radius: 65px; /* Совпадает с кнопкой */
+  padding: 2px; /* Толщина границы */
+  
+  /* Градиентный stroke */
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(153, 153, 153, 0) 92%);
+
+  /* Оставляем только бордер */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  /* Фиксируем бордер, чтобы он НЕ менялся */
+  pointer-events: none;
+  transition: none;
+  z-index: -1;
+}
+
+/* Эффект при наведении (меняется только фон и масштаб, а НЕ бордер) */
+.main-button:hover {
+  transform: scale(1.05);
+  
+}
+
+/* Эффект нажатия */
+.main-button:active {
+  transform: scale(0.95);
+}
+
+.link-icon {
+  display: flex; /* Размещаем элементы в ряд */
+  align-items: center; /* Выравниваем по центру вертикально */
+  gap: 0.781vw; /* Отступ между иконками */
+  margin: 2.604vw 0 0 0;
+}
+
+.link-icon__img1,
+.link-icon__img2,
+.link-icon__img3 {
+  width: 6vw; /* Размер иконок */
+  height: auto;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Плавная анимация */
+  z-index: 999;
+}
+
+/* 🔥 Эффект при наведении */
+.link-icon__img1:hover,
+.link-icon__img2:hover,
+.link-icon__img3:hover {
+  transform: scale(1.2); /* Увеличение иконки */
+  filter: brightness(1.2) contrast(1.2) drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.6)); /* Фильтры */
+}
+
+.link-icon a {
+  display: inline-block;
+  position: relative;
+  z-index: 10; /* Поднимаем ссылки выше */
+}
+
+
+a, a:link, a:visited  {
+  text-decoration: none;
+}
+
+a:hover  {
+  text-decoration: none;
+}
+
+/* Скрываем основной контент на мобильных */
+@media (max-width: 768px) {
+  .section, .container, .header, .next-sections {
+      display: none;
+  }
+
+  .mobile-placeholder {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      background: radial-gradient(circle at center -200%, 
+    #041E31 33%, 
+    #040A18 73%, 
+    #000305 100%);
+      color: white;
+      font-size: 5vw;
+  }
+
+  .mobile-placeholder img {
+      width: 50%;
+      max-width: 200px;
+      margin-bottom: 20px;
+  }
+
+  .mobiledescription{
+    font-size: 12vw;
+    font-weight: 400;
+    color: #fff;
+    line-height: 13vw;
+    width: 100%;
+    opacity: 100%;
+  }
+
+}
+
+

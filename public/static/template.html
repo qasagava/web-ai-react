@@ -1,0 +1,785 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rumble</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* Устанавливаем высоту для html и body */
+            scroll-behavior: smooth;
+            
+            
+        }
+
+        .timer {
+            position: absolute;
+            top: 78%;
+            left: 49%;
+            transform: translateX(-50%);
+            font-size: 3vw;
+            font-family: Arial, sans-serif;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        body {
+            background-image: url('https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/back.png'); /* Устанавливаем изображение как фон */
+            background-size: cover; /* Масштабируем фон, чтобы покрыть всю область */
+            background-position: top center; /* Выровняем по верхнему краю и центрируем */
+            background-repeat: no-repeat; /* Отключаем повторение */
+        }
+
+        .logo {
+            position: absolute;
+            top: 10%;
+            left: 34%;
+        }
+
+        .logo__img {
+            width: 30vw;
+            height: auto;
+        }
+
+        .wallet {
+            position: absolute;
+            top: 11%;
+            left: 79%;
+            
+        }
+
+        .wallet__img {
+            width: 18vw;
+            height: auto;
+            transition: transform 0.6s ease, filter 0.6s ease; /* Очень быстрая и плавная анимация */
+        }
+
+        .wallet:hover {
+        transform: scale(1.1); /* Увеличение масштаба на 10% при наведении */
+        filter: brightness(1.2); /* Увеличение яркости изображения */
+}
+
+        .circle {
+            position: absolute;
+            top: 47%;
+            left: 23%;
+        }
+
+        .circle__img {
+            width: 52vw;
+            height: auto;
+        }
+
+        .time-bar{
+            position: absolute;
+            top: 47%;
+            left: 23%;
+        }
+
+        .time-bar__img {
+            width: 52vw;
+            height: auto;
+            transform-origin: center; /* Центр вращения */
+            transform: rotate(239deg); /* Начальный угол */
+            transition: transform 1s linear; /* Плавный переход */
+        }
+
+        .left-tabl {
+            position: absolute;
+            top: 45%;
+            left: 1%;
+        }
+
+        .left-tabl__img {
+            width: 20vw;
+            height: auto;
+        }
+
+        .right-tabl {
+            position: absolute;
+            top: 41%;
+            left: 77.4%;
+        }
+
+        .right-tabl__img {
+            width: 20vw;
+            height: auto;
+        }
+
+        .link {
+            width: 6vw;
+            height: auto;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .link:hover {
+            transform: scale(1.1); /* Увеличение при наведении */
+            filter: brightness(1.2); /* Осветление */
+        }
+
+        /* Замена изображений при наведении */
+        .twitter img:hover {
+            content: url('https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/x_hover.png'); /* Заменяем изображение */
+        }
+
+        .tg img:hover {
+            content: url('https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/tg_hover.png');
+        }
+
+        .dex img:hover {
+            content: url('https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/dex_hover.png');
+        }
+
+        .git img:hover {
+            content: url('https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/git_hover.png');
+        }
+
+        .docs img:hover {
+            content: url('https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/docs_hover.png');
+        }
+
+        .info img:hover {
+            content: url('https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/info_hover.png');
+        }
+
+        .about img:hover {
+            content: url('https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/about_hover.png');
+        }
+
+        .twitter {
+            position: absolute;
+            top: 32%;
+            left: 46%;
+        }
+
+        .tg {
+            position: absolute;
+            top: 32%;
+            left: 53%;
+        }
+
+        .dex {
+            position: absolute;
+            top: 34%;
+            left: 39%;
+        }
+
+        .git {
+            position: absolute;
+            top: 38.8%;
+            left: 32.2%;
+        }
+
+        .docs {
+            position: absolute;
+            top: 36.8%;
+            left: 59.4%;
+        }
+
+        .info {
+            position: absolute;
+            top: 48.1%;
+            left: 26.8%;
+        }
+
+        .about {
+            position: absolute;
+            top: 44.3%;
+            left: 65.2%;
+        }
+
+        .slide {
+            position: relative;
+            top: calc(47% + 25vw); /* Позиционируем под блоком circle */
+            left: 0;
+        }
+
+        .slide__img {
+            width: 100%;
+            height: auto;
+        }
+
+        .about2 {
+            position: absolute;
+            top:110%; /* Позиционируем под блоком circle */
+            left: 39%;
+        }
+
+        .about2__img {
+            width: 20vw;
+            height: auto;
+        }
+
+        .t1{
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 3vw;
+            font-weight: 600;
+        }
+
+        @media screen and (max-width: 1600px) {
+
+            .timer {
+            position: absolute;
+            top: 42.7%;
+            left: 49%;
+            transform: translateX(-50%);
+            font-size: 3vw;
+            font-family: Arial, sans-serif;
+            font-weight: 600;
+            color: #fff;
+        }
+
+       
+
+        .logo {
+            position: absolute;
+            top: 3%;
+            left: 34%;
+        }
+
+        .logo__img {
+            width: 30vw;
+            height: auto;
+        }
+
+        .wallet {
+            position: absolute;
+            top: 4%;
+            left: 79%;
+        }
+
+        .wallet__img {
+            width: 18vw;
+            height: auto;
+        }
+
+        .circle {
+            position: absolute;
+            top: 27%;
+            left: 23%;
+        }
+
+        .circle__img {
+            width: 52vw;
+            height: auto;
+        }
+
+        .time-bar{
+            position: absolute;
+            top: 27%;
+            left: 23%;
+        }
+
+        .time-bar__img {
+            width: 52vw;
+            height: auto;
+            transform-origin: center; /* Центр вращения */
+            transform: rotate(239deg); /* Начальный угол */
+            transition: transform 1s linear; /* Плавный переход */
+        }
+
+        .left-tabl {
+            position: absolute;
+            top: 28%;
+            left: 1%;
+        }
+
+        .left-tabl__img {
+            width: 20vw;
+            height: auto;
+        }
+
+        .right-tabl {
+            position: absolute;
+            top: 26%;
+            left: 77.4%;
+        }
+
+        .right-tabl__img {
+            width: 20vw;
+            height: auto;
+        }
+
+        .link {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .link:hover {
+            transform: scale(1.1); /* Увеличение при наведении */
+            filter: brightness(1.2); /* Осветление */
+        }
+
+        /* Замена изображений при наведении */
+        .twitter img:hover {
+            content: url('x_hover.png'); /* Заменяем изображение */
+        }
+
+        .tg img:hover {
+            content: url('tg_hover.png');
+        }
+
+        .dex img:hover {
+            content: url('dex_hover.png');
+        }
+
+        .git img:hover {
+            content: url('git_hover.png');
+        }
+
+        .docs img:hover {
+            content: url('docs_hover.png');
+        }
+
+        .info img:hover {
+            content: url('info_hover.png');
+        }
+
+        .about img:hover {
+            content: url('about_hover.png');
+        }
+
+        .twitter {
+            position: absolute;
+            top: 18%;
+            left: 46%;
+        }
+
+        .tg {
+            position: absolute;
+            top: 18.4%;
+            left: 53%;
+        }
+
+        .dex {
+            position: absolute;
+            top: 18.9%;
+            left: 39%;
+        }
+
+        .git {
+            position: absolute;
+            top: 21%;
+            left: 32.2%;
+        }
+
+        .docs {
+            position: absolute;
+            top: 21.3%;
+            left: 59.4%;
+        }
+
+        .info {
+            position: absolute;
+            top: 26.1%;
+            left: 26.1%;
+        }
+
+        .about {
+            position: absolute;
+            top: 24.7%;
+            left: 65.2%;
+        }
+
+        .slide {
+            position: relative;
+            top: calc(47% + 8vw); /* Позиционируем под блоком circle */
+            left: 0;
+        }
+
+        .slide__img {
+            width: 100%;
+            height: auto;
+        }
+
+        .about2 {
+            position: absolute;
+            top:110%; /* Позиционируем под блоком circle */
+            left: 39%;
+        }
+
+        .about2__img {
+            width: 20vw;
+            height: auto;
+        }
+
+        }
+
+        @media screen and (max-width: 480px) {
+
+.timer {
+position: absolute;
+top: 29%;
+left: 51.6%;
+transform: translateX(-50%);
+font-size: 3vw;
+font-family: Arial, sans-serif;
+font-weight: 600;
+color: #fff;
+}
+
+
+
+.logo {
+position: absolute;
+top: 3%;
+left: 28%;
+}
+
+.logo__img {
+width: 50vw;
+height: auto;
+}
+
+.wallet {
+            position: absolute;
+            top: -15%;
+            left: 79%;
+        }
+
+        .wallet__img {
+            width: 18vw;
+            height: auto;
+        }
+
+.circle {
+position: absolute;
+top: 17%;
+left: 16%;
+}
+
+.circle__img {
+width: 72vw;
+height: auto;
+}
+
+.time-bar{
+position: absolute;
+top: 17%;
+left: 16%;
+}
+
+.time-bar__img {
+width: 72vw;
+height: auto;
+transform-origin: center; /* Центр вращения */
+transform: rotate(239deg); /* Начальный угол */
+transition: transform 1s linear; /* Плавный переход */
+}
+
+.left-tabl {
+position: absolute;
+top: 44%;
+left: 16%;
+}
+
+.left-tabl__img {
+width: 30vw;
+height: auto;
+}
+
+.right-tabl {
+position: absolute;
+top: 42%;
+left: 58%;
+}
+
+.right-tabl__img {
+width: 30vw;
+height: auto;
+}
+
+.link {
+width: 10vw;
+height: auto;
+transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.link:hover {
+transform: scale(1.1); /* Увеличение при наведении */
+filter: brightness(1.2); /* Осветление */
+}
+
+/* Замена изображений при наведении */
+.twitter img:hover {
+content: url('x_hover.png'); /* Заменяем изображение */
+}
+
+.tg img:hover {
+content: url('tg_hover.png');
+}
+
+.dex img:hover {
+content: url('dex_hover.png');
+}
+
+.git img:hover {
+content: url('git_hover.png');
+}
+
+.docs img:hover {
+content: url('docs_hover.png');
+}
+
+.info img:hover {
+content: url('info_hover.png');
+}
+
+.about img:hover {
+content: url('about_hover.png');
+}
+
+.twitter {
+position: absolute;
+top: 10%;
+left: 46%;
+}
+
+.tg {
+position: absolute;
+top: 10.3%;
+left: 54.9%;
+}
+
+.dex {
+position: absolute;
+top: 10.8%;
+left: 37.9%;
+}
+
+.git {
+position: absolute;
+top: 12.5%;
+left: 29.7%;
+}
+
+.docs {
+position: absolute;
+top: 12.1%;
+left: 63.1%;
+}
+
+.info {
+position: absolute;
+top: 15.5%;
+left: 21.8%;
+}
+
+.about {
+position: absolute;
+top: 14.7%;
+left: 70.8%;
+}
+
+.slide {
+position: relative;
+top: 37%; /* Позиционируем под блоком circle */
+left: 0;
+}
+
+.slide__img {
+width: 100%;
+height: auto;
+}
+
+.about2 {
+position: absolute;
+top:70%; /* Позиционируем под блоком circle */
+left: 39%;
+}
+
+.about2__img {
+width: 20vw;
+height: auto;
+}
+
+}
+
+        
+
+        
+    </style>
+</head>
+<body>
+
+
+    <div class="logo">
+        <img src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/rumble%20logo.png" alt="logo" class="logo__img">
+    </div>
+
+    <div class="wallet">
+        <img src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/connect%20eallet.png" alt="wallet button" class="wallet__img">
+    </div>
+
+    <div class="circle">
+        <img src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/coin.png" alt="circle" class="circle__img">
+    </div>
+
+    <div class="time-bar">
+        <img src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/%D1%88%D0%BA%D0%B0%D0%BB%D0%B0.png" alt="" class="time-bar__img">
+    </div>
+
+   
+
+
+
+    <div class="twitter">
+        <a target="_blank" href="/">
+            <img class="link" src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/x.png" alt="x">
+        </a>
+    </div>
+
+    <div class="tg">
+        <a target="_blank" href="/">
+            <img class="link" src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/tg.png" alt="x">
+        </a>
+    </div>
+
+    <div class="dex">
+        <a target="_blank" href="/">
+            <img class="link" src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/dex.png" alt="x">
+        </a>
+    </div>
+
+    <div class="git">
+        <a target="_blank" href="/">
+            <img class="link" src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/git.png" alt="x">
+        </a>
+    </div>
+
+    <div class="docs">
+        <a href="#ab">
+            <img class="link" src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/docs.png" alt="x">
+        </a>
+    </div>
+
+    <div class="info">
+        <a href="#ab">
+            <img class="link" src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/info.png" alt="x">
+        </a>
+    </div>
+
+    <div class="about">
+        <a href="#ab">
+            <img class="link" src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/about.png" alt="x">
+        </a>
+    </div>
+
+    <div class="slide">
+        <img class="slide__img" src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D1%85%D0%BE%D0%B4%20%D0%BF%D0%BE%D0%B2%D0%B5%D1%80%D1%85.png" alt="x">
+    </div>
+
+    <div class="timer">30:00</div>
+
+    <div class="about2" id="ab">
+        <img class="about2__img" src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/ABOUT%20US.png" alt="x">
+    </div>
+    <!--Левая табличка-->
+    <div class="left-tabl">
+        <img src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/%D0%BF%D0%BE%D0%B4%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0%20%D0%BF%D0%BE%D0%B4%20%D0%BA%D0%BE%D1%88%D0%B5%D0%BB%D1%8C%D0%BA%D0%B8.png" alt="tabl" class="left-tabl__img">  
+    </div>
+    <!--Правая табличка-->
+    <div class="right-tabl">
+        <img src="https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/rumble/%D0%BF%D0%BE%D0%B4%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0%20%D0%BF%D0%BE%D0%B4%20%D0%BA%D0%BE%D1%88%D0%B5%D0%BB%D1%8C%D0%BA%D0%B8%20%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%B0.png" alt="tabl" class="right-tabl__img">
+    </div>
+
+    <script>
+        const bar = document.querySelector('.time-bar__img');
+        const timerElement = document.querySelector('.timer');
+        const startTimeKey = 'timeBarStartTime'; // Ключ для хранения времени запуска
+
+        const startAngle = 239; // Начальный угол
+        const endAngle = 416; // Конечный угол
+        const duration = 30 * 60 * 1000; // 30 минут в миллисекундах
+
+        let animationFrameId;
+
+        // Функция для вычисления текущего угла
+        function calculateAngle(startTime) {
+            const elapsed = Date.now() - startTime; // Время, прошедшее с запуска
+            const progress = Math.min(elapsed / duration, 1); // Прогресс от 0 до 1
+            return startAngle + (endAngle - startAngle) * progress; // Угол изменяется
+        }
+
+        // Функция для обновления таймера
+        function updateTimer(startTime) {
+            const remaining = Math.max(duration - (Date.now() - startTime), 0); // Оставшееся время
+            const minutes = Math.floor(remaining / (60 * 1000)); // Минуты
+            const seconds = Math.floor((remaining % (60 * 1000)) / 1000); // Секунды
+            timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            if (remaining > 0) {
+                requestAnimationFrame(() => updateTimer(startTime));
+            } else {
+                // Таймер завершен
+                timerElement.textContent = '00:00';
+            }
+        }
+
+        // Установка угла для time-bar
+        function updateAngle(startTime) {
+            const elapsed = Date.now() - startTime;
+            if (elapsed >= duration) {
+                // Анимация завершена
+                bar.style.transform = `rotate(${endAngle}deg)`;
+                return;
+            }
+            const currentAngle = calculateAngle(startTime);
+            bar.style.transform = `rotate(${currentAngle}deg)`;
+            animationFrameId = requestAnimationFrame(() => updateAngle(startTime));
+        }
+
+        // Инициализация
+        function initialize() {
+            let startTime = localStorage.getItem(startTimeKey);
+
+            // Если стартовое время не установлено, задаем его
+            if (!startTime) {
+                startTime = Date.now();
+                localStorage.setItem(startTimeKey, startTime);
+            } else {
+                startTime = parseInt(startTime, 10);
+            }
+
+            // Запуск таймера и обновление угла
+            updateTimer(startTime);
+            updateAngle(startTime);
+        }
+
+        // Перезапуск таймера и анимации
+        function resetTimer() {
+            localStorage.setItem(startTimeKey, Date.now()); // Обновляем стартовое время
+            cancelAnimationFrame(animationFrameId); // Останавливаем текущую анимацию
+            initialize(); // Перезапускаем таймер и анимацию
+        }
+
+        // Обработчик нажатия пробела
+        window.addEventListener('keydown', (event) => {
+            if (event.code === 'Space') {
+                event.preventDefault(); // Предотвращаем стандартное действие браузера
+                resetTimer(); // Перезапускаем таймер
+            }
+        });
+
+        // Запускаем при загрузке страницы
+        initialize();
+
+        const sound = new Audio('https://77f0e343-ce7e-4e93-9c01-8a6631a1e600.selstorage.ru/%D0%9C%D1%8F%D1%87%D0%B8%D0%BA%20%D0%BE%D1%82%D1%81%D0%BA%D0%B0%D0%BA%D0%B8%D0%B2%D0%B0%D0%B5%D1%82%20(mp3cut.net).mp3');
+
+        // Добавление обработчика кликов на все элементы с классом "link"
+        const links = document.querySelectorAll('.link');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                sound.currentTime = 0; // Сбрасываем звук к началу
+                sound.play(); // Воспроизводим звук
+            });
+        });
+    </script>
+
+</body>
+</html>
