@@ -136,12 +136,14 @@
     text-align: center; 
     width: 30%; 
     margin-top: 3%;
+    z-index: 999;
 }
 
 .toptext__text{
     font-size: 2.333vw;
     margin: 0;
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    
 }
 
 .descriptiontop{
@@ -160,6 +162,7 @@
     margin-top: 7%;
     margin-left: -56%;
     padding: 0;
+    z-index: 999;
 
 }
 
@@ -167,6 +170,7 @@
     font-size: 2.333vw;
     margin: 0;
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    
 }
 
 .descriptionleft{
@@ -186,6 +190,7 @@
         margin-top: -4.3%;
         margin-left: 66%;
         transform: translateX(-50%); 
+        z-index: 999;
 
 }
 
@@ -211,6 +216,8 @@
     width: 30%; 
     margin-top: 12%;
     margin-left: 0%;
+    z-index: 999;
+    
 }
 
 .downtext__text{
