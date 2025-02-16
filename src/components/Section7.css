@@ -280,13 +280,13 @@
         gap: 2vw;
     }
 
-.imgcon:nth-child(1) { top: 47%; left: 37.4%; }
-.imgcon:nth-child(2) { top: 81%; left: 34%; }
-.imgcon:nth-child(3) { top: 113.2%; left: 37.7%; }
+.imgcon:nth-child(1) { top: 41%; left: 37.8%; }
+.imgcon:nth-child(2) { top: 79.6%; left: 34.1%; }
+.imgcon:nth-child(3) { top: 116.2%; left: 37.7%; }
 
-.imgcon:nth-child(4) { top: 45.8%; right: 37.6%; }
-.imgcon:nth-child(5) { top: 81%; right: 33.6%; }
-.imgcon:nth-child(6) { top: 114.1%; right: 37%; }
+.imgcon:nth-child(4) { top: 40.8%; right: 37.2%; }
+.imgcon:nth-child(5) { top: 79.1%; right: 33.5%; }
+.imgcon:nth-child(6) { top: 118.4%; right: 36.8%; }
 
 }
 
